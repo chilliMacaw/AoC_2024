@@ -40,11 +40,7 @@ def is_valid_decreasing(report, lo, hi):
 
 
 def is_valid_with_skip(report):
-
-    if is_valid_increasing(report, 0, len(report)) or is_valid_decreasing(
-        report, 0, len(report)
-    ):
-        return True
+    # this is not needed because if this is true then the same list with either first or last entry missing is true as well as is checked in for loop below
 
     for i in range(len(report)):
         new_report = report[:i] + report[i + 1 :]
