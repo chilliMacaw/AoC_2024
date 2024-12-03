@@ -13,8 +13,8 @@ def part_01(example=False):
 
 def is_valid(report):
     return all(
-        [report[i + 1] - report[i] in range(1, 4) for i in range(len(report) - 1)]
-    ) or all([report[i] - report[i + 1] in range(1, 4) for i in range(len(report) - 1)])
+        [1 <= report[i + 1] - report[i] <= 3 for i in range(len(report) - 1)]
+    ) or all([1 <= report[i] - report[i + 1] <= 3 for i in range(len(report) - 1)])
 
 
 def part_02(example=False):
@@ -40,7 +40,6 @@ def is_valid_decreasing(report, lo, hi):
 
 
 def is_valid_with_skip(report):
-    # this is not needed because if this is true then the same list with either first or last entry missing is true as well as is checked in for loop below
 
     for i in range(len(report)):
         new_report = report[:i] + report[i + 1 :]
@@ -49,7 +48,6 @@ def is_valid_with_skip(report):
             new_report, 0, len(new_report)
         ):
             return True
-
     return False
 
 
